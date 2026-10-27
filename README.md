@@ -4,7 +4,7 @@ Plataforma web para la gestión de pedidos de un taller mecánico. Proyecto acad
 
 **Equipo:** Equipo 1  
 **Modelo de desarrollo:** Lineal  
-**Sitio desplegado: ** https://equipo-1-l-lineal.vercel.app
+**Sitio desplegado:** https://equipo-1-l-lineal.vercel.app
 
 ## Integrantes
 
