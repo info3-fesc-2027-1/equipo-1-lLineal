@@ -18,4 +18,4 @@ assert.equal(validarCliente({ nombre: "Juan Pérez", telefono: "55 1234 5678" })
 assert.equal(validarCliente({ nombre: "Al", telefono: "123" }).errores.length, 2);
 assert.equal(validarCliente({}).valido, false);
 
-console.log("Todas las pruebas pasaron ✅");
+console.log("Todas las pruebas pasaron ");
