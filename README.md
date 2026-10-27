@@ -9,7 +9,7 @@ Plataforma web para la gestión de pedidos de un taller mecánico. Proyecto acad
 ## Integrantes
 
 Integrantes
-|---|---|
+
 | Domínguez Julián Eduardo | Validación de cliente y cálculo del total (Tarea 2), pantalla de clientes (Tarea 4) y nuevo pedido (Tarea 6) |
 | Morales Villalón Axel Enrique | Cambio de estado y cancelación (Tarea 3) y detalle de pedido (Tarea 7) |
 | Rivas Serrano Abraham | Datos (Tarea 1), catálogo (Tarea 5) y listado de pedidos (Tarea 8) |
