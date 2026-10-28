@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taller Mecánico | Clientes | modelo lineal - Equipo 1 </title>
+  <title>Taller Mecánico | Equipo 1</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <main class="contenedor">
+
+    <!-- REGISTRO DE CLIENTES -->
     <section class="clientes">
       <h1>Registro de clientes</h1>
       <p>Ingresa los datos del cliente y su vehículo.</p>
@@ -46,7 +48,7 @@
             <label for="placas">Placas del vehículo *</label>
             <input type="text" id="placas" name="placas"
               placeholder="Ej. ABC-123-D" maxlength="10"
-              style="text-transform: uppercase;" required>
+              required>
           </div>
 
           <div class="campo">
@@ -75,8 +77,30 @@
         <p id="mensaje-cliente" role="status" aria-live="polite"></p>
       </form>
     </section>
+
+<!-- CATÁLOGO DE SERVICIOS -->
+<section class="seccion-servicios">
+  <h1>Servicios del taller</h1>
+  <p>Selecciona los servicios que necesita el vehículo.</p>
+
+  <div id="catalogo" class="catalogo-servicios"></div>
+</section>
+
+    <!-- PEDIDO -->
+    <section class="pedido">
+      <h2>Mi pedido</h2>
+
+      <ul id="lista-pedido"></ul>
+
+      <p id="total">Total: $0.00</p>
+
+      <button type="button" id="btn-vaciar" class="btn-vaciar">
+        Vaciar pedido
+      </button>
+    </section>
+
   </main>
 
-  <script src="main.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,326 @@
+
+/* ========================================
+   ESTILOS GENERALES
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 30px 16px;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+h2 {
+  color: #1f2937;
+}
+
+/* ========================================
+   FORMULARIO DE CLIENTES
+======================================== */
+
+.clientes {
+  width: 100%;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.clientes > p {
+  color: #6b7280;
+}
+
+.campos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.completo {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #2563eb;
+}
+
+/* Botones generales */
+
+button {
+  padding: 12px 20px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.btn-limpiar {
+  background: #6b7280;
+}
+
+.btn-limpiar:hover {
+  background: #4b5563;
+}
+
+#mensaje-cliente {
+  margin-top: 18px;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+/* ========================================
+   CATÁLOGO DE SERVICIOS
+======================================== */
+
+.catalogo-servicios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
+
+  padding: 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  align-content: start;
+}
+
+/* Barra de desplazamiento del catálogo */
+
+.catalogo-servicios::-webkit-scrollbar {
+  width: 9px;
+}
+
+.catalogo-servicios::-webkit-scrollbar-track {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+.catalogo-servicios::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 10px;
+}
+
+.catalogo-servicios::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* ========================================
+   TARJETAS INDIVIDUALES
+======================================== */
+
+.tarjeta-servicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 175px;
+  padding: 14px;
+
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-servicio:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-servicio h2 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta-servicio .categoria {
+  margin: 8px 0;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.tarjeta-servicio .precio {
+  margin: 0 0 10px;
+  color: #15803d;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* Botón Agregar dentro de cada tarjeta */
+
+.tarjeta-servicio button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 10px 6px;
+  flex-shrink: 0;
+
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tarjeta-servicio button:hover {
+  background: #1d4ed8;
+}
+
+/* ========================================
+   MI PEDIDO
+======================================== */
+
+#lista-pedido {
+  padding-left: 0;
+  list-style: none;
+}
+
+#lista-pedido li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 10px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+#lista-pedido li span {
+  overflow-wrap: anywhere;
+}
+
+#lista-pedido li button {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  margin: 0;
+  background: #dc2626;
+}
+
+#lista-pedido li button:hover {
+  background: #b91c1c;
+}
+
+#total {
+  font-size: 20px;
+  font-weight: bold;
+  color: #15803d;
+}
+
+/* ========================================
+   DISEÑO PARA TABLET Y CELULAR
+======================================== */
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px 10px;
+  }
+
+  .clientes {
+    padding: 20px;
+  }
+
+  .campos {
+    grid-template-columns: 1fr;
+  }
+
+  .completo {
+    grid-column: auto;
+  }
+
+  .catalogo-servicios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: 380px;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .tarjeta-servicio {
+    padding: 10px;
+    min-height: 165px;
+  }
+
+  .tarjeta-servicio h2 {
+    font-size: 14px;
+  }
+
+  .tarjeta-servicio .precio {
+    font-size: 15px;
+  }
+
+  #lista-pedido li {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 350px) {
+  .catalogo-servicios {
+    grid-template-columns: 1fr;
+  }
+}
