@@ -10,6 +10,8 @@ const listaPedido = document.getElementById("lista-pedido");
 const totalElemento = document.getElementById("total");
 const btnVaciar = document.getElementById("btn-vaciar");
 
+const buscador = document.getElementById('buscador')
+
 // Lista de servicios agregados
 let pedido = [];
 
@@ -158,6 +160,19 @@ btnVaciar.addEventListener("click", function () {
   pedido = [];
   mostrarPedido();
 });
+
+buscador.addEventListener('input', () => {
+
+  const texto = buscador.value.toLowerCase()
+
+  const resultados = productos.filter(p =>
+    p.nombre.toLowerCase().includes(texto)
+  )
+
+  mostrarProductos(resultados)
+
+})
+
 
 // INICIAR CATÁLOGO
 mostrarProductos(productos);
