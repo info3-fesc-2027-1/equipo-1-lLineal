@@ -1,0 +1,29 @@
+[33mce1d4ba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m agregar catalogo de productos
+[33m8b239ed[m carga de datos
+[33me81b183[m t3 cambio de estado/ancelacion - pendiente a cambios
+[33mb618867[m Update index.html
+[33mf3014ce[m Change title from 'taller-AtelierAuto' to 'ChēNova'
+[33m6d162e3[m Fix formatting of deployed site link in README
+[33me66b858[m Update deployed site URL in README.md
+[33mea368c1[m Update title in index.html for consistency
+[33m7101010[m Update header title to 'Taller-AtelierAuto'
+[33ma363beb[m Add client
+[33m169ffaa[m Create main.js
+[33m5c3cc7c[m Delete src
+[33m3d240c0[m Create src
+[33mddead37[m Index HTML
+[33mdff011a[m gitignore
+[33mb72df20[m Initialize package.json
+[33m4a3a7c0[m Revise team members and project details in README
+[33m1882bb7[m Rename logica.js. to logica.js
+[33md458ed5[m Rename lógica.test.js to logica.test.js
+[33ma530fd6[m Fix console log message formatting in tests
+[33mb37866a[m Implement tests for logic functions
+[33mf16d4da[m Create lógica.test.js
+[33maf23eec[m Revise README formatting and wording
+[33m0f8b760[m Enhance README with project context and objectives
+[33mc359ef0[m Fix table formatting in README.md
+[33m0219cba[m Initialize README with project details
+[33me4a0bfb[m Add client validation and total calculation functions
+[33m0b93a28[m Create logica.js.
+[33m8e4e4d9[m Initial commit
