@@ -1,22 +1,82 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ChēNova· Equipo 1</title>
-  </head>
-  <body>
-    <main>
-      <h1>Taller</h1>
-      <p>Equipo 1 · Modelo Lineal</p>
-      <h2>Registro de clientes</h2>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Mecánico | Clientes | modelo lineal - Equipo 1 </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="contenedor">
+    <section class="clientes">
+      <h1>Registro de clientes</h1>
+      <p>Ingresa los datos del cliente y su vehículo.</p>
+
       <form id="form-cliente">
-        <label>Nombre <input id="nombre" /></label>
-        <label>Teléfono <input id="telefono" /></label>
-        <button type="submit">Validar</button>
+        <div class="campos">
+
+          <div class="campo">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre"
+              placeholder="Ej. Juan Pérez" required>
+          </div>
+
+          <div class="campo">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono"
+              placeholder="10 dígitos" maxlength="10"
+              inputmode="numeric" required>
+          </div>
+
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo"
+              placeholder="cliente@correo.com">
+          </div>
+
+          <div class="campo">
+            <label for="rfc">RFC (opcional)</label>
+            <input type="text" id="rfc" name="rfc"
+              placeholder="RFC del cliente" maxlength="13">
+          </div>
+
+          <div class="campo">
+            <label for="placas">Placas del vehículo *</label>
+            <input type="text" id="placas" name="placas"
+              placeholder="Ej. ABC-123-D" maxlength="10"
+              style="text-transform: uppercase;" required>
+          </div>
+
+          <div class="campo">
+            <label for="vehiculo">Vehículo *</label>
+            <input type="text" id="vehiculo" name="vehiculo"
+              placeholder="Ej. Nissan Versa 2022" required>
+          </div>
+
+          <div class="campo completo">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion"
+              placeholder="Calle, número, colonia y municipio">
+          </div>
+
+          <div class="campo completo">
+            <label for="observaciones">Observaciones</label>
+            <textarea id="observaciones" name="observaciones"
+              rows="3" placeholder="Información adicional"></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit">Registrar cliente</button>
+        <button type="reset" class="btn-limpiar">Limpiar</button>
+
+        <p id="mensaje-cliente" role="status" aria-live="polite"></p>
       </form>
-      <p id="resultado"></p>
-    </main>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
 </html>
