@@ -2,7 +2,7 @@ const PAUSA = 30;
 const ESPERA = 500;
 
 const hero = document.querySelector(".hero");
-const boton = hero.querySelector("boton");
+const boton = hero.querySelector(".boton");
 const textoBoton = hero.querySelector(".boton__texto");
 
 function separarLetras(elemento, inicio = 0) {
@@ -43,6 +43,13 @@ document.body.classList.add("bloqueado");
 
 boton.addEventListener("click", (e) => {
   e.preventDefault();
-  document.body.classList.remove("bloqueado");
-  document.querySelector("#registro").scrollIntoView({ behavior: "smooth" });
+  document.body.classList.remove("bloqueado");  // vuelve a permitir el scroll
+  hero.classList.add("salida");                 // empieza a deslizarse hacia arriba
+});
+
+// Cuando termina de deslizarse, se oculta del todo
+hero.addEventListener("transitionend", (e) => {
+  if (e.target === hero && hero.classList.contains("salida")) {
+    hero.classList.add("oculto");
+  }
 });
