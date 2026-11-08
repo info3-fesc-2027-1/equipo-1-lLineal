@@ -1,6 +1,7 @@
 
 import "./style.css";
 import "./hero.css";
+import "./hero.js";
 import { productos } from "./datos.js";
 
 // Elementos del HTML

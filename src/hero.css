@@ -20,11 +20,8 @@ body { padding: 0; }
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-left: 1.5rem; /*espacio a los lados*/ 
-    padding-right: 1.5rem;
-    padding-top: 40px 8vw;
+    padding: 40px 8vw 6vh; /* arriba lados abajo */
     justify-content: space-between;
-    
 }
 
 .hero__etiqueta{
@@ -45,18 +42,82 @@ body { padding: 0; }
     text-transform: capitalize;
     line-height: 2;
     max-width: 42ch;
+    /*letra más gruesa*/
+    font-weight: 700;
 }
 
 .boton{
+    position: relative;
+    display: inline-block;
     color: var(--blanco);
     text-decoration: none;
-    border-bottom: 2px solid currentColor;
+    /*border-bottom: 2px solid currentColor;*/
     padding-bottom: 8px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: 2px;
+    pointer-events: none;
 }
 
-.boton:hover{
-    color: var(--dorado);
-    transition: 0.5s;
+.hero.lista .boton{pointer-events: auto;}
+
+.boton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: cargar 1.5s linear forwards;
+  animation-delay: var(--espera, 500ms);
+}
+
+@keyframes cargar {
+  to { transform: scaleX(1); }
+}
+
+.boton__texto {
+  display: inline-flex;
+  overflow: hidden;                         /* recorta lo que sale del renglón */
+  opacity: 0;
+  animation: aparecer 0.6s ease forwards;
+  animation-delay: calc(var(--fin-frase, 3s));
+}
+
+.boton__texto .letra {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.4s ease;
+  transition-delay: calc(var(--i) * 40ms);
+}
+
+.boton__texto .letra::after {
+  content: attr(data-l);                   /* la misma letra, tomada del atributo */
+  position: absolute;
+  left: 0;
+  top: -100%;                              /* una línea arriba, escondida */
+  color: var(--dorado);
+}
+
+.boton:hover .letra {
+  transform: translateY(100%);
+}
+
+/* ---------- Bloqueo del scroll ---------- */
+body.bloqueado { overflow: hidden; }
+body.bloqueado .btn-menu { display: none; }  
+
+
+.hero__texto .linea{display: block;}
+
+.hero__texto .letra{
+    opacity: 0;
+    animation: aparecer 0.4s ease forwards;
+    animation-delay: calc(var(--i) * var(--pausa, 60ms) + var(--espera, 500ms));
+}
+
+@keyframes aparecer{
+    to {opacity: 1;}
 }
