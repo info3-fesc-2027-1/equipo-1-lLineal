@@ -46,6 +46,7 @@
             <label for="nombre">Nombre completo *</label>
             <input type="text" id="nombre" name="nombre"
               placeholder="Ej. Juan Pérez" required>
+                  <p id="error-nombre" class="text-sm text-red-600 hidden"></p>
           </div>
 
           <div class="campo">
@@ -53,6 +54,7 @@
             <input type="tel" id="telefono" name="telefono"
               placeholder="10 dígitos" maxlength="10"
               inputmode="numeric" required>
+          <p id="error-telefono" class="error-campo"></p>
           </div>
 
 
@@ -61,6 +63,7 @@
             <input type="text" id="placas" name="placas"
               placeholder="Ej. ABC-123-D" maxlength="10"
               required>
+              <p id="error-placas" class="error-campo"></p>
           </div>
 
                     <div class="campo">

@@ -10,6 +10,8 @@ const listaPedido = document.getElementById("lista-pedido");
 const totalElemento = document.getElementById("total");
 const btnVaciar = document.getElementById("btn-vaciar");
 
+
+
 const buscador = document.getElementById('buscador')
 
 //manda llamar el menu
@@ -84,6 +86,7 @@ formularioCliente.addEventListener("submit", function (evento) {
 
   formularioCliente.reset();
 });
+
 
 // LIMPIAR MENSAJE
 formularioCliente.addEventListener("reset", function () {

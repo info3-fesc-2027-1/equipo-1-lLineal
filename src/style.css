@@ -413,3 +413,17 @@ button:hover {
     opacity: 1;
     visibility: visible;
 }
+
+/* MENSAJES DE ERROR */
+.error-campo {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* INPUT CON ERROR */
+.input-error {
+    border: 1px solid #dc2626 !important;
+    background-color: #fef2f2;
+}
