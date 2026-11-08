@@ -12,6 +12,27 @@ const btnVaciar = document.getElementById("btn-vaciar");
 
 const buscador = document.getElementById('buscador')
 
+
+// ELEMENTOS DEL MENÚ
+
+const btnMenu = document.getElementById("btn-menu");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+// ABRIR Y CERRAR MENÚ
+
+btnMenu.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+// CERRAR AL PRESIONAR EL FONDO
+
+overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
 // Lista de servicios agregados
 let pedido = [];
 
