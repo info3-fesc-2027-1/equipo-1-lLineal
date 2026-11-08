@@ -1,0 +1,16 @@
+:root {
+  --negro: #0c0c0c;
+  --blanco: #f5f5f5;
+}
+
+body { padding: 0; }
+.contenedor { padding: 30px 16px; }
+
+.hero{
+    background: var(--negro);
+    color: var(--blanco);
+}
+
+.hero{
+    min-height: 100vh;
+}
