@@ -102,6 +102,48 @@ function validarCliente(cliente) {
   return valido;
 }
 
+// GUARDAR PEDIDO COMPLETO
+function guardarPedido(cliente) {
+
+  // Recuperar pedidos anteriores
+  const pedidosGuardados = JSON.parse(
+    localStorage.getItem("pedidosTaller")
+  ) || [];
+
+  // Calcular total
+  const total = pedido.reduce(
+    (suma, servicio) => suma + servicio.precio,
+    0
+  );
+
+  // Crear nuevo pedido
+  const nuevoPedido = {
+    id: Date.now(),
+    fechaRegistro: new Date().toLocaleDateString("es-MX"),
+    cliente: cliente,
+    servicios: pedido.map(servicio => ({
+      id: servicio.id,
+      nombre: servicio.nombre,
+      categoria: servicio.categoria,
+      precio: servicio.precio
+    })),
+    total: total,
+    estado: "Registrado"
+  };
+
+  // Agregar sin eliminar los pedidos anteriores
+  pedidosGuardados.push(nuevoPedido);
+
+  // Guardar en el navegador
+  localStorage.setItem(
+    "pedidosTaller",
+    JSON.stringify(pedidosGuardados)
+  );
+
+  return nuevoPedido;
+}
+
+
 
 // REGISTRAR CLIENTE
 formularioCliente.addEventListener("submit", function(evento) {
@@ -128,13 +170,28 @@ formularioCliente.addEventListener("submit", function(evento) {
     return;
   }
 
-  console.log("Cliente registrado:", cliente);
-
-  mensajeCliente.style.color = "#15803d";
+  // Evitar registrar clientes sin servicios
+if (pedido.length === 0) {
+  mensajeCliente.style.color = "#dc2626";
   mensajeCliente.textContent =
-    `Cliente ${cliente.nombre} registrado correctamente.`;
+    "Debes agregar al menos un servicio al pedido.";
+  return;
+}
 
-  formularioCliente.reset();
+// Guardar toda la información
+const nuevoPedido = guardarPedido(cliente);
+
+console.log("Pedido guardado:", nuevoPedido);
+
+mensajeCliente.style.color = "#15803d";
+mensajeCliente.textContent =
+  `Pedido #${nuevoPedido.id} registrado correctamente.`;
+
+// Limpiar formulario y servicios
+formularioCliente.reset();
+
+pedido = [];
+mostrarPedido();
 
 });
 

@@ -441,3 +441,25 @@ button:hover {
     margin-top: 15px;
     font-weight: 600;
 }
+
+
+.btn-eliminar-pedido {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-eliminar-pedido:hover {
+    background: #991b1b;
+}
+
+.pedido-vacio {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+}

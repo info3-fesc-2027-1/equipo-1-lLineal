@@ -1,45 +1,48 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CLIENTES | PEDIDOS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos | CHĒNOVA</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <button id="btn-menu" class="btn-menu">
-        ☰
-    </button>
+    import "<div class="">
+    <pedidos></pedidos>.js";
 
-    <div id="overlay" class="overlay"></div>
+  <button id="btn-menu" class="btn-menu">☰</button>
+  <div id="overlay" class="overlay"></div>
 
-    <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>CHĒNOVA</h2>
+      <p>Taller Mecánico</p>
+    </div>
 
-        <div class="sidebar-header">
-            <h2>CHĒNOVA</h2>
-            <p>Taller Mecánico</p>
-        </div>
+    <nav class="menu">
+      <a href="./index.html" class="menu-link">🏠 Inicio</a>
+      <a href="./pedidos.html" class="menu-link">📋 Pedidos</a>
+      <a href="./DASHLIVE.html" class="menu-link">📊 DASHLIVE</a>
+    </nav>
+  </aside>
 
-        <nav class="menu">
-        <a href="./index.html" class="menu-link">🏠 Inicio</a>
-        <a href="./pedidos.html" class="menu-link">📋 Pedidos</a>
-        <a href="./DASHLIVE.html" class="menu-link"> 📊📈 DASHLIVE</a>
-        </nav>
+  <main class="contenedor">
 
-    </aside>
+    <section class="clientes">
+      <h1>Gestión de pedidos</h1>
+      <p>Consulta los pedidos registrados en el taller.</p>
 
-    <main class="contenido">
+      <div id="contenedor-pedidos" class="contenedor-pedidos">
+        <!-- Aquí aparecerán las fichas -->
+      </div>
 
-        <h1 style="text-align: center;">Gestión de pedidos</h1>
+    </section>
 
-        <p style="text-align: center;">Aquí podrás administrar tus pedidos.</p>
+  </main>
 
-    </main>
-
-    <script type="module" src="/src/menu.js"></script>
+  <script type="module" src="/src/pedidos.js"></script>
 
 </body>
 </html>
