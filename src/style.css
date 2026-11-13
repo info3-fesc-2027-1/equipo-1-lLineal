@@ -498,3 +498,39 @@ button:hover {
     color: #15803d;
     border-color: #22c55e;
 }
+
+
+
+.buscador-pedidos {
+    width: 100%;
+    margin: 25px 0;
+}
+
+.buscador-pedidos input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #1f2937;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+.buscador-pedidos input:focus {
+    border-color: #3b82f6;
+}
+
+.estado-pedido {
+    padding: 9px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #374151;
+    color: white;
+    cursor: pointer;
+}
+
+.estado-pedido option {
+    background: #1f2937;
+    color: white;
+}
