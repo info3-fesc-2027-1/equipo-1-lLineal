@@ -49,9 +49,26 @@ function mostrarPedidos() {
           <p>Registrado: ${escapar(p.fechaRegistro)}</p>
         </div>
 
-        <span class="estado-pedido">
-          ${escapar(p.estado)}
-        </span>
+       <select
+  class="estado-pedido"
+  data-estado="${p.id}">
+
+  <option value="Pendiente"
+    ${p.estado === "Pendiente" ? "selected" : ""}>
+    Pendiente
+  </option>
+
+  <option value="En proceso"
+    ${p.estado === "En proceso" ? "selected" : ""}>
+    En proceso
+  </option>
+
+  <option value="Finalizado"
+    ${p.estado === "Finalizado" ? "selected" : ""}>
+    Finalizado
+  </option>
+
+</select>
       </div>
 
       <hr>
@@ -118,6 +135,36 @@ contenedor.addEventListener("click", function(evento) {
   );
 
   mostrarPedidos();
+
+});
+
+// CAMBIAR ESTADO DEL PEDIDO
+contenedor.addEventListener("change", function(evento) {
+
+  const selector = evento.target.closest("[data-estado]");
+
+  if (!selector) return;
+
+  const id = Number(selector.dataset.estado);
+  const nuevoEstado = selector.value;
+
+  const pedidos = obtenerPedidos();
+
+  // Buscar el pedido correspondiente
+  const pedidoEncontrado = pedidos.find(p => p.id === id);
+
+  if (pedidoEncontrado) {
+
+    pedidoEncontrado.estado = nuevoEstado;
+
+    // Actualizar almacenamiento
+    localStorage.setItem(
+      "pedidosTaller",
+      JSON.stringify(pedidos)
+    );
+
+    console.log("Estado actualizado:", pedidoEncontrado);
+  }
 
 });
 

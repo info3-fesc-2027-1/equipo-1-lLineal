@@ -463,3 +463,38 @@ button:hover {
     background: white;
     border-radius: 12px;
 }
+
+
+/* SELECTOR DE ESTADOS */
+.estado-pedido {
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* PENDIENTE */
+.estado-pedido:has(option:checked[value="Pendiente"]) {
+    background: #fef3c7;
+    color: #92400e;
+    border-color: #f59e0b;
+}
+
+/* EN PROCESO */
+.estado-pedido:has(option:checked[value="En proceso"]) {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-color: #3b82f6;
+}
+
+/* FINALIZADO */
+.estado-pedido:has(option:checked[value="Finalizado"]) {
+    background: #dcfce7;
+    color: #15803d;
+    border-color: #22c55e;
+}

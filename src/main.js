@@ -128,7 +128,7 @@ function guardarPedido(cliente) {
       precio: servicio.precio
     })),
     total: total,
-    estado: "Registrado"
+    estado: "Pendiente"
   };
 
   // Agregar sin eliminar los pedidos anteriores
@@ -183,15 +183,16 @@ const nuevoPedido = guardarPedido(cliente);
 
 console.log("Pedido guardado:", nuevoPedido);
 
-mensajeCliente.style.color = "#15803d";
-mensajeCliente.textContent =
-  `Pedido #${nuevoPedido.id} registrado correctamente.`;
-
 // Limpiar formulario y servicios
 formularioCliente.reset();
 
 pedido = [];
 mostrarPedido();
+
+// Mostrar confirmación después de limpiar
+mensajeCliente.style.color = "#15803d";
+mensajeCliente.textContent =
+  `Pedido #${nuevoPedido.id} registrado correctamente.`;
 
 });
 
