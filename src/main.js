@@ -22,41 +22,90 @@ import "./menu.js";
 // Lista de servicios agregados
 let pedido = [];
 
+
+
 // VALIDAR CLIENTE
 function validarCliente(cliente) {
-  const errores = [];
 
-  if (!cliente.nombre.trim()) {
-    errores.push("El nombre del cliente es obligatorio.");
+  let valido = true;
+
+  // Función para mostrar errores individuales
+  function mostrarError(campo, mensaje) {
+    const error = document.getElementById(`error-${campo}`);
+    error.textContent = mensaje;
+
+    if (mensaje !== "") {
+      valido = false;
+    }
   }
 
-  if (!/^\d{10}$/.test(cliente.telefono)) {
-    errores.push("El teléfono debe contener exactamente 10 dígitos.");
-  }
+  // Nombre
+  mostrarError(
+    "nombre",
+    cliente.nombre.trim() === ""
+      ? "El nombre del cliente es obligatorio."
+      : ""
+  );
 
+  // Teléfono
+  mostrarError(
+    "telefono",
+    !/^\d{10}$/.test(cliente.telefono)
+      ? "El teléfono debe contener exactamente 10 dígitos."
+      : ""
+  );
+
+  // Placas
+  mostrarError(
+    "placas",
+    cliente.placas.trim() === ""
+      ? "Las placas son obligatorias."
+      : ""
+  );
+
+  // Vehículo
+  mostrarError(
+    "vehiculo",
+    cliente.vehiculo.trim() === ""
+      ? "La marca y modelo del vehículo son obligatorios."
+      : ""
+  );
+
+  // Fecha recibido
+  mostrarError(
+    "fecharecibido",
+    cliente.fecharecibido === ""
+      ? "La fecha de recepción es obligatoria."
+      : ""
+  );
+
+  // Fecha entrega
+  mostrarError(
+    "fechaentrega",
+    cliente.fechaentrega === ""
+      ? "La fecha de entrega es obligatoria."
+      : ""
+  );
+
+  // Comparar fechas cuando ambas existen
   if (
-    cliente.correo &&
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cliente.correo)
+    cliente.fecharecibido &&
+    cliente.fechaentrega &&
+    cliente.fechaentrega < cliente.fecharecibido
   ) {
-    errores.push("El correo electrónico no es válido.");
+    mostrarError(
+      "fechaentrega",
+      "La fecha de entrega no puede ser anterior a la recepción."
+    );
   }
 
-  if (!cliente.placas.trim()) {
-    errores.push("Las placas del vehículo son obligatorias.");
-  }
-
-  if (!cliente.vehiculo.trim()) {
-    errores.push("La marca y el modelo del vehículo son obligatorios.");
-  }
-
-  return {
-    valido: errores.length === 0,
-    errores
-  };
+  return valido;
 }
 
+
 // REGISTRAR CLIENTE
-formularioCliente.addEventListener("submit", function (evento) {
+formularioCliente.addEventListener("submit", function(evento) {
+
   evento.preventDefault();
 
   const datos = new FormData(formularioCliente);
@@ -64,19 +113,18 @@ formularioCliente.addEventListener("submit", function (evento) {
   const cliente = {
     nombre: datos.get("nombre").trim(),
     telefono: datos.get("telefono").trim(),
-    correo: datos.get("correo").trim(),
-    rfc: datos.get("rfc").trim().toUpperCase(),
     placas: datos.get("placas").trim().toUpperCase(),
     vehiculo: datos.get("vehiculo").trim(),
-    direccion: datos.get("direccion").trim(),
+    fecharecibido: datos.get("fecharecibido"),
+    fechaentrega: datos.get("fechaentrega"),
     observaciones: datos.get("observaciones").trim()
   };
 
   const resultado = validarCliente(cliente);
 
-  if (!resultado.valido) {
+  if (!resultado) {
     mensajeCliente.style.color = "#dc2626";
-    mensajeCliente.textContent = resultado.errores.join(" ");
+    mensajeCliente.textContent = "Revisa los campos marcados en rojo.";
     return;
   }
 
@@ -84,10 +132,12 @@ formularioCliente.addEventListener("submit", function (evento) {
 
   mensajeCliente.style.color = "#15803d";
   mensajeCliente.textContent =
-    `Cliente ${cliente.nombre} validado correctamente.`;
+    `Cliente ${cliente.nombre} registrado correctamente.`;
 
   formularioCliente.reset();
+
 });
+
 
 
 // LIMPIAR MENSAJE

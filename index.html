@@ -15,6 +15,8 @@
     ☰
 </button>
 
+
+
 <!-- Fondo oscuro -->
 <div id="overlay" class="overlay"></div>
 
@@ -52,14 +54,14 @@
       <h1>Registro de clientes</h1>
       <p>Ingresa los datos del cliente y su vehículo.</p>
 
-      <form id="form-cliente">
+      <form id="form-cliente" novalidate>
         <div class="campos">
 
           <div class="campo">
             <label for="nombre">Nombre completo *</label>
             <input type="text" id="nombre" name="nombre"
               placeholder="Ej. Juan Pérez" required>
-                  <p id="error-nombre" class="text-sm text-red-600 hidden"></p>
+                  <p id="error-nombre" class="error-campo"></p>
           </div>
 
           <div class="campo">
@@ -83,6 +85,7 @@
             <label for="vehiculo">Vehículo *</label>
             <input type="text" id="vehiculo" name="vehiculo"
               placeholder="Ej. Nissan Versa 2022" required>
+              <p id="error-vehiculo" class="error-campo"></p>
           </div>
           
                     <div class="campo">
@@ -90,13 +93,15 @@
             <input type="text" id="fecharecibido" name="fecharecibido"
               placeholder="Ej. 12-07-2026" maxlength="10"
               required>
+              <p id="error-fecharecibido" class="error-campo"></p>
           </div>
 
                               <div class="campo">
             <label for="placas">FECHA ENTREGA*</label>
-            <input type="text" id="fechaentrega" name="plafechaentregacas"
+            <input type="text" id="fechaentrega" name="fechaentrega"
               placeholder="Ej. 12-08-2026" maxlength="10"
               required>
+              <p id="error-fechaentrega" class="error-campo"></p>
           </div>
 
 

@@ -414,16 +414,30 @@ button:hover {
     visibility: visible;
 }
 
-/* MENSAJES DE ERROR */
-.error-campo {
-    color: #dc2626;
-    font-size: 12px;
-    margin-top: 4px;
-    font-weight: 600;
-}
+
 
 /* INPUT CON ERROR */
 .input-error {
     border: 1px solid #dc2626 !important;
     background-color: #fef2f2;
+}
+
+/* Mensajes de error */
+.error-campo {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 16px;
+    font-weight: 500;
+}
+
+/* Campos con error */
+.campo input:invalid {
+    box-shadow: none;
+}
+
+/* Mensaje general */
+#mensaje-cliente {
+    margin-top: 15px;
+    font-weight: 600;
 }
