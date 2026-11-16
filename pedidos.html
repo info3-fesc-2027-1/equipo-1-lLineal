@@ -7,13 +7,26 @@
   <title>Pedidos | TALLER MORALES</title>
 
 </head>
-<body>
+<body style="
+    background-image: url('/img-fondo.jpeg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    min-height: 100vh;
+">>
 
   <main class="contenedor">
 
-    <section class="clientes">
-      <h1>Gestión de pedidos</h1>
-      <p>Consulta los pedidos registrados en el taller.</p>
+    <section style="
+        background-color: black;
+        color: white;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #374151;
+    "   class="clientes">
+      <h1 style="text-align: center;">Gestión de pedidos</h1>
+      <p style="text-align: center;">Consulta los pedidos registrados en el taller.</p>
 
     <div class="buscador-pedidos">
     <input
@@ -23,7 +36,16 @@
     >
 </div>
 
-<div id="contenedor-pedidos" class="contenedor-pedidos"></div>
+<div
+    id="contenedor-pedidos" 
+    class="contenedor-pedidos"
+    style="
+        background-color: #1d2025;
+        color: white;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #15181e;
+    " id="contenedor-pedidos" class="contenedor-pedidos"></div>
 
     </section>
 

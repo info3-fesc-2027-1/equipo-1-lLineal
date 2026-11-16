@@ -34,8 +34,8 @@
 
     <!-- REGISTRO DE CLIENTES -->
     <section class="clientes" id="registro">
-      <h1>Registro de clientes</h1>
-      <p>Ingresa los datos del cliente y su vehículo.</p>
+      <h1 style="text-align: center;">Registro de clientes</h1>
+      <p style="text-align: center;">Ingresa los datos del cliente y su vehículo.</p>
 
       <form id="form-cliente" novalidate>
         <div class="campos">
@@ -102,8 +102,8 @@
 
 <!-- CATÁLOGO DE SERVICIOS -->
 <section class="seccion-servicios">
-  <h1>Servicios del taller</h1>
-  <p>Selecciona los servicios que necesita el vehículo.</p>
+  <h1 style="text-align: center;">Servicios del taller</h1>
+  <p style="text-align: center;">Selecciona los servicios que necesita el vehículo.</p>
       <div class="mb-6">
 
       <input
@@ -116,29 +116,33 @@
                 dark:border-gray-600"
     >
 
-    </div>
+    </div> <br>
 
   <div id="catalogo" class="catalogo-servicios"></div>
 </section>
 
     <!-- PEDIDO -->
     <section class="pedido">
-      <h2>Mi pedido</h2>
+      <br>
+      <h2 style="text-align: center;">Mi pedido</h2>
+      
 
       <ul id="lista-pedido"></ul>
 
-      <p id="total">Total: $0.00</p>
+      <p style="text-align: center;" id="total">Total: $0.00</p>
 
-      <button type="button" id="btn-vaciar" class="btn-vaciar">
+      <button style="text-align: center;" type="button" id="btn-vaciar" class="btn-vaciar">
         Vaciar pedido
       </button>
-       <button type="submit" form="form-cliente">
-    Registrar cliente
-</button>
 
-<button type="reset" form="form-cliente">
-    Limpiar
-</button>
+
+       <button style="text-align: center;" type="submit" form="form-cliente">
+           Registrar cliente
+        </button>
+
+       <button style="text-align: center;" type="reset" form="form-cliente">
+        Limpiar
+      </button>
 
         <p id="mensaje-cliente" role="status" aria-live="polite"></p>
     </section>
