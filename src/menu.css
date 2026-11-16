@@ -1,0 +1,142 @@
+.barra{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+}
+
+.barra__logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.barra__menu{
+    background: none;
+    border: 1px solid var(--dorado);
+    color: var(--blanco);
+    margin: 0;
+}
+
+.barra__menu:hover{
+    background: var(--dorado);   /* anula el azul del button global */
+}
+
+/* ---------- Menú de pantalla completa ---------- */
+
+.menu{
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: var(--negro);                 /* antes: --blanco */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8vw;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;   /* una sola línea */
+}
+
+body.menu-abierto .menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-abierto{
+    overflow: hidden;
+}
+
+/* ---------- Enlaces ---------- */
+
+.menu__enlace{                                /* estado cerrado */
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    font-family: Georgia, serif;
+    font-size: clamp(2.2rem, 8vw, 5rem);
+    color: var(--blanco);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: color 0.3s, opacity 0.4s, transform 0.4s;
+}
+
+body.menu-abierto .menu__enlace{              /* estado abierto */
+    opacity: 1;
+    transform: none;
+    transition: color 0.3s,
+                opacity 0.5s calc(var(--i) * 80ms + 150ms),
+                transform 0.5s calc(var(--i) * 80ms + 150ms);
+}
+
+.menu__enlace:hover,
+.menu__enlace[aria-current="page"]{
+    color: var(--dorado);
+}
+
+.menu__num{
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--dorado);
+}
+
+.menu__pie{
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* ---------- Que la barra no tape el contenido ---------- */
+
+main.contenedor,
+main.contenido{
+    padding-top: 90px;
+}
+
+.menu__imagen {
+  position: absolute;      /* flota dentro del menú sin empujar nada */
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 415 / 739;
+  background: url("/fondo1.jpg") center / cover no-repeat;
+  filter: brightness(0.7);
+  transition: filter 0.8s ease;
+  -webkit-mask-image: linear-gradient(to left, #000 55%, transparent);
+  mask-image: linear-gradient(to left, #000 55%, transparent);
+}
+
+.menu__imagen:hover {
+  filter: brightness(1.3);
+}
+
+.menu__nav,
+.menu__pie {
+  position: relative;      /* por encima de la imagen */
+  z-index: 1;
+  align-self: flex-start;  /* miden lo que mide su contenido */
+}
+
+@media (max-width: 800px) {
+  .menu__imagen {
+    width: 100%;
+    aspect-ratio: auto;
+    filter: brightness(0.35);
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}

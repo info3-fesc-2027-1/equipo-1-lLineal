@@ -34,32 +34,25 @@ export function calcularTotal(partidas) {
 /* cambio de estado y cancelacion axel estuvo aquí.
 pequeño problema ya que aun no realizan el trabajo anterior, estamos 
 */
-export const ESTADOS = ["pendiente", "en_proceso", "terminado", "entregado", "cancelado"];
+export const ESTADOS = ["Pendiente", "En proceso", "Finalizado"];
 
-
-// Aquí seran las transiciones y las permitidas para evitar hacer transisiones impiosibles
 const TRANSICIONES = {
-  pendiente: ["en_proceso", "cancelado"],
-  en_proceso: ["terminado", "cancelado"],
-  terminado: ["entregado"],
-  entregado: [],
-  cancelado: [],
+  "Pendiente": ["En proceso"],
+  "En proceso": ["Finalizado"],
+  "Finalizado": [],
 };
 
+export function estadosPermitidos(actual) {
+  return TRANSICIONES[actual] ?? [];
+}
+
 export function cambiarEstado(pedido, nuevoEstado) {
-  const actual = pedido?.estado;
+  const actual = pedido?.estado || "Pendiente";   // un pedido sin estado cuenta como Pendiente
   if (!ESTADOS.includes(nuevoEstado)) {
     return { ok: false, error: `Estado desconocido: ${nuevoEstado}.` };
   }
-  if (!TRANSICIONES[actual]) {
-    return { ok: false, error: "El pedido no tiene un estado válido." };
-  }
-  if (!TRANSICIONES[actual].includes(nuevoEstado)) {
+  if (!estadosPermitidos(actual).includes(nuevoEstado)) {
     return { ok: false, error: `No se puede pasar de ${actual} a ${nuevoEstado}.` };
   }
   return { ok: true, pedido: { ...pedido, estado: nuevoEstado } };
-}
-
-export function cancelarPedido(pedido) {
-  return cambiarEstado(pedido, "cancelado");
 }
