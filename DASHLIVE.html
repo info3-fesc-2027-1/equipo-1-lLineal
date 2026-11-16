@@ -1,35 +1,263 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Clientes | TALLER</title>
-
-    <link rel="stylesheet" href="/style.css">
+    <title>CHĒNOVA | Panel de administración</title>
 </head>
 
-<body style="
-    background-image: url('/img-fondo.jpeg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
-    min-height: 100vh;
-">
+<body>
 
-    <main class="contenedor">
+<main class="dashboard">
 
-        <h1 style="text-align: center; color: white;">Gestión de operación</h1>
+    <!-- ENCABEZADO -->
+    <header class="dash-header">
 
-        <p style="text-align: center; color: white;">
-            Aquí podrás administrar tus finanzas.
+        <div class="dash-marca">
+            <div class="dash-logo">M</div>
+
+            <div class="dash-titulo">
+                <h1>CHĒNOVA</h1>
+                <p>ADMINISTRACIÓN DEL TALLER</p>
+            </div>
+        </div>
+
+        <div class="dash-fecha">
+            <span>FECHA ACTUAL</span>
+            <p id="fecha-actual">Cargando...</p>
+        </div>
+
+    </header>
+
+    <!-- BIENVENIDA -->
+    <section class="dash-bienvenida">
+        <span class="dash-etiqueta">PANEL GENERAL</span>
+
+        <h2>Bienvenido al sistema de administración</h2>
+
+        <p>
+            Gestiona tus expedientes, supervisa los trabajos
+            y consulta el rendimiento de CHĒNOVA.
+        </p>
+    </section>
+
+    <!-- RESUMEN DE PEDIDOS -->
+    <section class="dash-seccion">
+
+        <div class="dash-seccion-titulo">
+            <div>
+                <h2>Resumen de pedidos</h2>
+                <p>Estado general de los expedientes</p>
+            </div>
+        </div>
+
+        <div class="dash-tarjetas">
+
+            <article class="dash-card">
+                <div class="dash-card-encabezado">
+                    <span>Total de pedidos</span>
+                    <span class="dash-icono">▤</span>
+                </div>
+                <h2 id="total-pedidos">0</h2>
+                <small>Pedidos registrados</small>
+            </article>
+
+            <article class="dash-card pendiente">
+                <div class="dash-card-encabezado">
+                    <span>Pendientes</span>
+                    <span class="dash-icono">◷</span>
+                </div>
+                <h2 id="pedidos-pendientes">0</h2>
+                <small>Esperando atención</small>
+            </article>
+
+            <article class="dash-card proceso">
+                <div class="dash-card-encabezado">
+                    <span>En proceso</span>
+                    <span class="dash-icono">⚙</span>
+                </div>
+                <h2 id="pedidos-proceso">0</h2>
+                <small>Trabajos en curso</small>
+            </article>
+
+            <article class="dash-card finalizado">
+                <div class="dash-card-encabezado">
+                    <span>Finalizados</span>
+                    <span class="dash-icono">✓</span>
+                </div>
+                <h2 id="pedidos-finalizados">0</h2>
+                <small>Trabajos terminados</small>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- FINANZAS -->
+    <section class="dash-seccion dash-finanzas">
+
+        <div class="dash-seccion-titulo">
+            <h2>Resumen financiero</h2>
+            <p>Información económica de los expedientes</p>
+        </div>
+
+        <div class="dash-tarjetas dash-tarjetas-finanzas">
+
+            <article class="dash-card dinero">
+                <span>Valor total de pedidos</span>
+                <h2 id="valor-pedidos">$0.00</h2>
+                <small>Importe de todos los expedientes</small>
+            </article>
+
+            <article class="dash-card dinero">
+                <span>Valor de pedidos finalizados</span>
+                <h2 id="ingresos-finalizados">$0.00</h2>
+                <small>Importe de trabajos terminados</small>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- SEGUIMIENTO DE ENTREGAS -->
+    <section class="dash-panel">
+
+        <div class="dash-seccion-titulo">
+            <h2>Seguimiento de entregas</h2>
+            <p>Control de trabajos pendientes antes de su fecha de entrega</p>
+        </div>
+
+        <div class="dash-entregas-resumen">
+
+            <div>
+                <span>Entregas pendientes</span>
+                <h3 id="total-entregas-pendientes">0</h3>
+            </div>
+
+            <div>
+                <span>Entregas vencidas</span>
+                <h3 id="total-entregas-vencidas">0</h3>
+            </div>
+
+        </div>
+
+        <div class="dash-tabla-contenedor">
+
+            <table class="dash-tabla">
+                <thead>
+                    <tr>
+                        <th>Expediente</th>
+                        <th>Cliente</th>
+                        <th>Vehículo</th>
+                        <th>Fecha de entrega</th>
+                        <th>Estado</th>
+                        <th>Tiempo restante</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabla-entregas">
+                    <tr>
+                        <td colspan="6">Cargando entregas...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+    <!-- SERVICIO MÁS SOLICITADO -->
+    <section class="dash-panel">
+
+        <div class="dash-seccion-titulo">
+            <h2>Servicio más solicitado</h2>
+            <p>Servicio con mayor demanda en el taller</p>
+        </div>
+
+        <div class="dash-servicio">
+
+            <div class="dash-servicio-icono">⚙</div>
+
+            <div>
+                <h3 id="servicio-popular">Sin información</h3>
+                <p id="cantidad-servicio">0 servicios registrados</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PEDIDOS RECIENTES -->
+    <section class="dash-panel">
+
+        <div class="dash-seccion-titulo">
+            <h2>Últimos pedidos registrados</h2>
+            <p>Consulta los cinco expedientes más recientes</p>
+        </div>
+
+        <div class="dash-tabla-contenedor">
+
+            <table class="dash-tabla">
+
+                <thead>
+                    <tr>
+                        <th>Expediente</th>
+                        <th>Cliente</th>
+                        <th>Vehículo</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabla-recientes">
+                    <tr>
+                        <td colspan="5">Cargando pedidos...</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </section>
+
+    <!-- ACCESOS RÁPIDOS -->
+    <section class="dash-panel">
+
+        <div class="dash-seccion-titulo">
+            <h2>Accesos rápidos</h2>
+            <p>Continúa administrando tu taller</p>
+        </div>
+
+        <div class="dash-acciones">
+
+            <button type="button"
+                onclick="location.href='/index.html'">
+                + Registrar pedido
+            </button>
+
+            <button type="button"
+                onclick="location.href='/pedidos.html'">
+                Consultar expedientes
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PIE -->
+    <footer class="dash-footer">
+
+        <div class="dash-logo-pequeno">M</div>
+
+        <p>
+            CHĒNOVA © 2026
+            <span>| Sistema de administración del taller</span>
         </p>
 
-    </main>
+    </footer>
 
-    <script type="module" src="/src/menu.js"></script>
+</main>
+
+<script type="module" src="/src/menu.js"></script>
+<script type="module" src="/src/dashboard.js"></script>
 
 </body>
 </html>

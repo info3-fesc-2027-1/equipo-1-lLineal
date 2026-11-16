@@ -1,0 +1,500 @@
+
+/* =========================================
+   CHĒNOVA - DASHBOARD
+========================================= */
+
+:root {
+    --dorado: #c9a43b;
+    --dorado-claro: #e8cb75;
+    --blanco: #f8f8f8;
+    --gris: #b4b4b4;
+    --borde: rgba(255,255,255,.13);
+    --panel: rgba(13,13,13,.76);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--blanco);
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.68),
+            rgba(0,0,0,.83)
+        ),
+        url("/img-fondo.jpeg") center center / cover fixed;
+
+    background-color: #090909;
+}
+
+/* PRINCIPAL */
+
+.dashboard {
+    width: 94%;
+    max-width: 1450px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+/* ENCABEZADO */
+
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding-bottom: 25px;
+    margin-bottom: 35px;
+
+    border-bottom: 1px solid var(--borde);
+}
+
+.dash-marca {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dash-logo {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid var(--dorado);
+    color: var(--dorado);
+
+    font-family: Georgia, serif;
+    font-size: 27px;
+    transform: rotate(45deg);
+}
+
+.dash-titulo h1 {
+    font-size: 28px;
+    letter-spacing: 4px;
+}
+
+.dash-titulo p {
+    margin-top: 5px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gris);
+}
+
+.dash-fecha {
+    padding: 13px 20px;
+    background: rgba(0,0,0,.55);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+}
+
+.dash-fecha span {
+    display: block;
+    color: var(--dorado);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.dash-fecha p {
+    font-size: 14px;
+}
+
+/* BIENVENIDA */
+
+.dash-bienvenida {
+    margin-bottom: 38px;
+}
+
+.dash-etiqueta {
+    color: var(--dorado);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.dash-bienvenida h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    margin: 12px 0;
+}
+
+.dash-bienvenida p {
+    color: var(--gris);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* SECCIONES */
+
+.dash-seccion {
+    margin-bottom: 35px;
+}
+
+.dash-seccion-titulo {
+    margin-bottom: 22px;
+}
+
+.dash-seccion-titulo h2 {
+    color: var(--dorado-claro);
+    font-size: 21px;
+    margin-bottom: 7px;
+}
+
+.dash-seccion-titulo p {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+/* TARJETAS */
+
+.dash-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 18px;
+}
+
+.dash-card {
+    min-width: 0;
+    padding: 24px;
+
+    background: rgba(13,13,13,.73);
+    backdrop-filter: blur(8px);
+
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+
+    transition: .25s ease;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--dorado);
+    background: rgba(24,22,17,.88);
+}
+
+.dash-card-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.dash-card span {
+    color: #d0d0d0;
+    font-size: 13px;
+}
+
+.dash-icono {
+    color: var(--dorado) !important;
+    font-size: 23px !important;
+}
+
+.dash-card h2 {
+    color: white;
+    font-size: 36px;
+    margin: 22px 0 10px;
+    overflow-wrap: anywhere;
+}
+
+.dash-card small {
+    color: var(--gris);
+    font-size: 12px;
+}
+
+/* ESTADOS */
+
+.pendiente {
+    border-left: 4px solid #eab308;
+}
+
+.proceso {
+    border-left: 4px solid #3b82f6;
+}
+
+.finalizado {
+    border-left: 4px solid #22c55e;
+}
+
+.dinero {
+    border-left: 4px solid var(--dorado);
+}
+
+.dash-finanzas {
+    margin-top: 40px;
+}
+
+.dash-tarjetas-finanzas {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+}
+
+.dash-finanzas .dash-card h2 {
+    color: var(--dorado-claro);
+    font-size: 30px;
+}
+
+/* PANELES */
+
+.dash-panel {
+    padding: 27px;
+    margin-bottom: 25px;
+
+    background: rgba(10,10,10,.76);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+}
+
+.dash-panel .dash-seccion-titulo h2 {
+    color: var(--dorado-claro);
+}
+
+/* SERVICIO POPULAR */
+
+.dash-servicio {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 22px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.dash-servicio-icono {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(201,164,59,.15);
+    color: var(--dorado);
+    border-radius: 12px;
+    font-size: 28px;
+}
+
+.dash-servicio h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.dash-servicio p {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+/* TABLAS */
+
+.dash-tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.dash-tabla {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+}
+
+.dash-tabla th {
+    background: rgba(201,164,59,.13);
+    color: var(--dorado-claro);
+    padding: 16px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: .5px;
+    white-space: nowrap;
+}
+
+.dash-tabla td {
+    padding: 16px;
+    color: #eeeeee;
+    font-size: 13px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.dash-tabla tbody tr {
+    transition: .2s;
+}
+
+.dash-tabla tbody tr:hover {
+    background: rgba(255,255,255,.055);
+}
+
+/* ENTREGAS */
+
+.dash-entregas-resumen {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.dash-entregas-resumen > div {
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--borde);
+}
+
+.dash-entregas-resumen span {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+.dash-entregas-resumen h3 {
+    color: var(--dorado-claro);
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.entrega-vencida {
+    color: #ff6262 !important;
+    font-weight: bold;
+}
+
+.entrega-hoy {
+    color: #ff9d45 !important;
+    font-weight: bold;
+}
+
+.entrega-proxima {
+    color: #facc15 !important;
+    font-weight: bold;
+}
+
+.entrega-normal {
+    color: #4ade80 !important;
+    font-weight: bold;
+}
+
+/* BOTONES */
+
+.dash-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.dash-acciones button {
+    padding: 15px 25px;
+    border: 1px solid var(--dorado);
+    border-radius: 9px;
+
+    background: var(--dorado);
+    color: #111;
+
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.dash-acciones button:hover {
+    background: var(--dorado-claro);
+    transform: translateY(-3px);
+}
+
+.dash-acciones button:nth-child(2) {
+    color: var(--dorado-claro);
+    background: rgba(0,0,0,.5);
+}
+
+.dash-acciones button:nth-child(2):hover {
+    background: rgba(201,164,59,.15);
+}
+
+/* PIE DE PÁGINA */
+
+.dash-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 35px;
+    padding: 25px 10px;
+    border-top: 1px solid var(--borde);
+}
+
+.dash-logo-pequeno {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--dorado);
+    color: var(--dorado);
+}
+
+.dash-footer p {
+    color: var(--dorado);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.dash-footer span {
+    color: var(--gris);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1000px) {
+    .dash-tarjetas {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width: 600px) {
+    .dashboard {
+        width: 100%;
+        padding: 22px 13px;
+    }
+
+    .dash-tarjetas,
+    .dash-tarjetas-finanzas {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-header {
+        align-items: flex-start;
+    }
+
+    .dash-panel {
+        padding: 18px;
+    }
+
+    .dash-entregas-resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-bienvenida h2 {
+        font-size: 22px;
+    }
+
+    .dash-footer {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .dash-acciones {
+        flex-direction: column;
+    }
+
+    .dash-acciones button {
+        width: 100%;
+    }
+}
