@@ -1,5 +1,5 @@
 
-
+import { estadosPermitidos, cambiarEstado } from "../logica.js";
 import "./style.css";
 import "./menu.js";
 
@@ -55,25 +55,8 @@ function mostrarPedidos(lista = obtenerPedidos()) {
                     <p>Registrado: ${escapar(p.fechaRegistro)}</p>
                 </div>
 
-                <select
-                    class="estado-pedido"
-                    data-estado="${escapar(p.id)}"
-                >
-                    <option value="Pendiente"
-                        ${p.estado === "Pendiente" || !p.estado ? "selected" : ""}>
-                        Pendiente
-                    </option>
+                ${selectorEstado(p)}.
 
-                    <option value="En proceso"
-                        ${p.estado === "En proceso" ? "selected" : ""}>
-                        En proceso
-                    </option>
-
-                    <option value="Finalizado"
-                        ${p.estado === "Finalizado" ? "selected" : ""}>
-                        Finalizado
-                    </option>
-                </select>
             </div>
 
             <hr>
@@ -146,28 +129,23 @@ buscador.addEventListener("input", function() {
 
 // CAMBIAR ESTADO
 contenedor.addEventListener("change", function(evento) {
-
     const selector = evento.target.closest("[data-estado]");
-
     if (!selector) return;
 
     const id = Number(selector.dataset.estado);
     const pedidos = obtenerPedidos();
+    const posicion = pedidos.findIndex(p => p.id === id);
+    if (posicion === -1) return;
 
-    const encontrado = pedidos.find(p => p.id === id);
+    const resultado = cambiarEstado(pedidos[posicion], selector.value);
 
-    if (encontrado) {
-
-        encontrado.estado = selector.value;
-
-        localStorage.setItem(
-            "pedidosTaller",
-            JSON.stringify(pedidos)
-        );
-
-        // Actualizar la vista respetando el buscador
-        buscador.dispatchEvent(new Event("input"));
+    if (!resultado.ok) {
+        alert(resultado.error);
+    } else {
+        pedidos[posicion] = resultado.pedido;   // cambiarEstado devuelve una copia, la guardamos
+        localStorage.setItem("pedidosTaller", JSON.stringify(pedidos));
     }
+    buscador.dispatchEvent(new Event("input"));
 });
 
 // ELIMINAR EXPEDIENTE
@@ -188,6 +166,18 @@ contenedor.addEventListener("click", function(evento) {
 
     buscador.dispatchEvent(new Event("input"));
 });
+function selectorEstado(p) {
+    const actual = p.estado || "Pendiente";
+    const siguientes = estadosPermitidos(actual);
+    const opciones = [actual, ...siguientes]
+        .map(e => `<option value="${e}" ${e === actual ? "selected" : ""}>${e}</option>`)
+        .join("");
 
+    return `
+        <select class="estado-pedido" data-estado="${escapar(p.id)}"
+            ${siguientes.length === 0 ? "disabled" : ""}>
+            ${opciones}
+        </select>`;
+}
 // INICIAR
 mostrarPedidos();
