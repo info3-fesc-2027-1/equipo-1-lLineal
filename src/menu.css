@@ -7,49 +7,60 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px ;
+    padding: 12px 20px;
     background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(10px)
+    backdrop-filter: blur(10px);
 }
 
 .barra__logo{
     display: flex;
+    align-items: center;
     gap: 10px;
     color: var(--blanco);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 .barra__menu{
     background: none;
     border: 1px solid var(--dorado);
     color: var(--blanco);
     margin: 0;
-
 }
+
+.barra__menu:hover{
+    background: var(--dorado);   /* anula el azul del button global */
+}
+
+/* ---------- Menú de pantalla completa ---------- */
 
 .menu{
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background: var(--blanco);
+    background: var(--negro);                 /* antes: --blanco */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5px;
+    padding: 0 8vw;
     opacity: 0;
-    visibility: hidden; 
-    transition: opacity 0.4s;
-    visibility: 0.4s;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;   /* una sola línea */
 }
+
 body.menu-abierto .menu{
     opacity: 1;
     visibility: visible;
 }
+
 body.menu-abierto{
     overflow: hidden;
 }
-.menu__enlace{
+
+/* ---------- Enlaces ---------- */
+
+.menu__enlace{                                /* estado cerrado */
     display: flex;
     align-items: baseline;
     gap: 5px;
@@ -57,5 +68,41 @@ body.menu-abierto{
     font-size: clamp(2.2rem, 8vw, 5rem);
     color: var(--blanco);
     text-decoration: none;
-    transition: color 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: color 0.3s, opacity 0.4s, transform 0.4s;
+}
+
+body.menu-abierto .menu__enlace{              /* estado abierto */
+    opacity: 1;
+    transform: none;
+    transition: color 0.3s,
+                opacity 0.5s calc(var(--i) * 80ms + 150ms),
+                transform 0.5s calc(var(--i) * 80ms + 150ms);
+}
+
+.menu__enlace:hover,
+.menu__enlace[aria-current="page"]{
+    color: var(--dorado);
+}
+
+.menu__num{
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--dorado);
+}
+
+.menu__pie{
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* ---------- Que la barra no tape el contenido ---------- */
+
+main.contenedor,
+main.contenido{
+    padding-top: 90px;
 }
