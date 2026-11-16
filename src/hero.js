@@ -36,15 +36,20 @@ hero.style.setProperty("--fin-frase", `${ESPERA + duracionFrase}ms`);  // cuánd
 separarLetras(textoBoton);
 textoBoton.addEventListener("animationend", () => hero.classList.add("lista"));
 
-// 3) Bloquear el scroll hasta pulsar "Entrar"
-history.scrollRestoration = "manual";   // que al recargar no se quede a media página
-window.scrollTo(0, 0);
-document.body.classList.add("bloqueado");
+// 3) Bloquear el scroll hasta pulsar "Entrar" (solo la primera vez de la visita)
+const yaVista = sessionStorage.getItem("introVista");
+
+if (!yaVista) {
+  history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
+  document.body.classList.add("bloqueado");
+}
 
 boton.addEventListener("click", (e) => {
   e.preventDefault();
-  document.body.classList.remove("bloqueado");  // vuelve a permitir el scroll
-  hero.classList.add("salida");                 // empieza a deslizarse hacia arriba
+  sessionStorage.setItem("introVista", "1");   // recordar que ya la vio
+  document.body.classList.remove("bloqueado");
+  hero.classList.add("salida");
 });
 
 // Cuando termina de deslizarse, se oculta del todo

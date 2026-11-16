@@ -1,6 +1,6 @@
 import "./style.css";
 import "./tema.css";
-import "./menu.css";
+import "./menu.css";  
 
 const ENLACES = [
   { clave: "index", href: "./index.html", texto: "Inicio" },
@@ -29,9 +29,10 @@ document.body.insertAdjacentHTML("afterbegin", `
   </header>
 
   <div class="menu" id="menu">
-    <nav class="menu__nav">${enlaces}</nav>
-    <p class="menu__pie">Taller Morales · Mecánica de confianza</p>
-  </div>
+  <div class="menu__imagen" aria-hidden="true"></div>
+  <nav class="menu__nav">${enlaces}</nav>
+  <p class="menu__pie">Taller Morales · Mecánica de confianza</p>
+</div>
 `);
 
 const boton = document.getElementById("btn-menu");
