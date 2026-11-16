@@ -1,0 +1,61 @@
+.barra{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px ;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px)
+}
+
+.barra__logo{
+    display: flex;
+    gap: 10px;
+    color: var(--blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.barra__menu{
+    background: none;
+    border: 1px solid var(--dorado);
+    color: var(--blanco);
+    margin: 0;
+
+}
+
+.menu{
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.4s;
+    visibility: 0.4s;
+}
+body.menu-abierto .menu{
+    opacity: 1;
+    visibility: visible;
+}
+body.menu-abierto{
+    overflow: hidden;
+}
+.menu__enlace{
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    font-family: Georgia, serif;
+    font-size: clamp(2.2rem, 8vw, 5rem);
+    color: var(--blanco);
+    text-decoration: none;
+    transition: color 0.3s;
+}
