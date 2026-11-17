@@ -31,7 +31,7 @@ document.body.insertAdjacentHTML("afterbegin", `
   <div class="menu" id="menu">
   <div class="menu__imagen" aria-hidden="true"></div>
   <nav class="menu__nav">${enlaces}</nav>
-  <p class="menu__pie">Taller Morales · Mecánica de confianza</p>
+  <p class="menu__pie">ChēNova · Mecánica de confianza</p>
 </div>
 `);
 
