@@ -1,0 +1,317 @@
+
+/* ==========================================
+   FONDO GENERAL CHĒNOVA
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.68)),
+        url("/img-fondo.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+.contenedor {
+    width: min(95%, 1250px);
+    margin: 40px auto;
+}
+
+/* ==========================================
+   PANEL PRINCIPAL
+========================================== */
+
+.clientes {
+    background: rgba(10, 10, 10, 0.68);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+}
+
+.clientes h1 {
+    color: #d4af37;
+    text-align: center;
+}
+
+.descripcion {
+    text-align: center;
+    color: #eeeeee;
+}
+
+/* ==========================================
+   BUSCADOR
+========================================== */
+
+.buscador-pedidos {
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+#buscador-pedidos {
+    width: 100%;
+    padding: 14px;
+
+    background: rgba(0,0,0,0.65);
+    color: white;
+
+    border: 1px solid rgba(212,175,55,0.5);
+    border-radius: 10px;
+
+    font-size: 15px;
+}
+
+#buscador-pedidos:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+/* ==========================================
+   DISTRIBUCIÓN DE EXPEDIENTES
+========================================== */
+
+.contenedor-pedidos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 24px;
+    padding: 10px 0;
+}
+
+/* ==========================================
+   TARJETA INDIVIDUAL
+========================================== */
+
+.ficha-pedido {
+    background: rgba(15,15,15,0.82);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(212,175,55,0.40);
+    border-radius: 16px;
+
+    padding: 22px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+
+    transition: 0.25s ease;
+}
+
+.ficha-pedido:hover {
+    transform: translateY(-4px);
+    border-color: #d4af37;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+}
+
+/* ==========================================
+   ENCABEZADO DEL EXPEDIENTE
+========================================== */
+
+.encabezado-pedido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.encabezado-pedido h2 {
+    color: #d4af37;
+    font-size: 19px;
+    margin: 0 0 8px;
+}
+
+.encabezado-pedido p {
+    color: #aaa;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* ==========================================
+   SELECTOR DE ESTADO
+========================================== */
+
+.estado-pedido {
+    background: rgba(212,175,55,0.15);
+    color: #f2d675;
+
+    border: 1px solid #a98220;
+    border-radius: 20px;
+
+    padding: 8px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.estado-pedido option {
+    background: #171717;
+    color: white;
+}
+
+/* ==========================================
+   SEPARADORES Y TÍTULOS
+========================================== */
+
+.ficha-pedido hr {
+    border: none;
+    border-top: 1px solid rgba(212,175,55,0.30);
+
+    margin: 18px 0;
+}
+
+.ficha-pedido h3 {
+    color: #d4af37;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* ==========================================
+   DATOS DEL CLIENTE
+========================================== */
+
+.datos-pedido {
+    background: rgba(0,0,0,0.25);
+
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+
+    padding: 12px;
+}
+
+.datos-pedido p {
+    color: #eeeeee;
+    font-size: 13px;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+}
+
+.datos-pedido strong {
+    color: #d4af37;
+}
+
+/* ==========================================
+   SERVICIOS
+========================================== */
+
+.servicios-pedido {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.servicios-pedido li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 10px;
+
+    background: rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(212,175,55,0.15);
+
+    color: #eeeeee;
+    font-size: 13px;
+}
+
+.servicios-pedido li strong {
+    color: #d4af37;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   TOTAL
+========================================== */
+
+.total-pedido {
+    text-align: right;
+    color: #d4af37;
+
+    font-size: 21px;
+    font-weight: bold;
+
+    margin: 20px 0;
+}
+
+/* ==========================================
+   BOTÓN ELIMINAR
+========================================== */
+
+.btn-eliminar-pedido {
+    width: 100%;
+    padding: 11px;
+
+    background: rgba(130,25,25,0.75);
+    color: white;
+
+    border: 1px solid rgba(255,100,100,0.4);
+    border-radius: 9px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-eliminar-pedido:hover {
+    background: #a52a2a;
+}
+
+/* ==========================================
+   SIN RESULTADOS
+========================================== */
+
+.pedido-vacio {
+    grid-column: 1 / -1;
+
+    text-align: center;
+    padding: 35px;
+
+    background: rgba(15,15,15,0.75);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 15px;
+}
+
+.pedido-vacio h2 {
+    color: #d4af37;
+}
+
+.pedido-vacio p {
+    color: #ddd;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+    .clientes {
+        padding: 18px;
+    }
+
+    .contenedor-pedidos {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado-pedido {
+        align-items: flex-start;
+    }
+}

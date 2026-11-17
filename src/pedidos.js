@@ -1,6 +1,6 @@
 
 import { estadosPermitidos, cambiarEstado } from "../logica.js";
-import "./style.css";
+import "./pedidos.css";
 import "./menu.js";
 
 const contenedor = document.getElementById("contenedor-pedidos");
@@ -55,7 +55,7 @@ function mostrarPedidos(lista = obtenerPedidos()) {
                     <p>Registrado: ${escapar(p.fechaRegistro)}</p>
                 </div>
 
-                ${selectorEstado(p)}.
+                ${selectorEstado(p)}
 
             </div>
 
